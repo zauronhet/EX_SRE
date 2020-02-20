@@ -47,3 +47,7 @@ Route::post('/LogIn','INTSIAC_LogInController@Authentication')->name('user.LogIn
 Route::get('/index','INTSIAC_Create_UserController@index');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
