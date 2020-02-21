@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use DB;
 
 class RegisterController extends Controller
 {
@@ -51,8 +52,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'apellido_paterno' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+
         ]);
     }
 
@@ -66,8 +69,35 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'apellido_paterno' => $data['apellido_paterno'],
+            'apellido_materno' => $data['apellido_materno'],
             'email' => $data['email'],
+            'direccion_institucional' => $data['direccion_institucional'],
+            'nombre_de_usuario' => RegisterController::UserNameGenerator($data['name'],$data['apellido_paterno'],$data['apellido_materno']),
+            'rol' => 1,
+            'status' => 1,
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public static function UserNameGenerator($Nombre,$Apellido_Paterno,$Apellido_Materno)
+    {
+    	$name = $Nombre;
+    	$last_name1 = $Apellido_Paterno;
+    	$last_name2 = $Apellido_Materno;
+    	$username = $name[0].$last_name1.$last_name2[0];
+
+		$sql_1 = DB::select("select usuarios.Nombre_de_Usuario from usuarios where  usuarios.Nombre_de_Usuario like '$username%' ");
+
+		if($sql_1!= null)
+		{
+			$i = count($sql_1);
+		    $username = $username. $i;
+		    return $username;
+		}
+		else 
+		{
+			return $username;
+		}
     }
 }
