@@ -87,7 +87,7 @@ class RegisterController extends Controller
     	$last_name2 = $Apellido_Materno;
     	$username = $name[0].$last_name1.$last_name2[0];
 
-		$sql_1 = DB::select("select usuarios.Nombre_de_Usuario from usuarios where  usuarios.Nombre_de_Usuario like '$username%' ");
+		$sql_1 = DB::select("select users.Nombre_de_Usuario from users where  users.Nombre_de_Usuario like '$username%' ");
 
 		if($sql_1!= null)
 		{

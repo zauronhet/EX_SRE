@@ -16,7 +16,7 @@ class CreateIntentosDeExamenesTable extends Migration
     {
         Schema::create('intentos_de_examenes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('usuario_id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('examen_id');
             $table->boolean('intento_1')->default(false);
             $table->boolean('intento_2')->default(false);
@@ -25,7 +25,7 @@ class CreateIntentosDeExamenesTable extends Migration
             $table->decimal('calificacion',4,2)->default(0);
             $table->timestamps();
 
-            $table->foreign('usuario_id')->references('id')->on('usuarios');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('examen_id')->references('id')->on('examenes');
         });
     }

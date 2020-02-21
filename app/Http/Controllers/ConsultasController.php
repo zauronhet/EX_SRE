@@ -8,7 +8,7 @@ use App\Intento_de_Examen;
 use App\Opcion_Pregunta_de_Examen;
 use App\Pregunta_de_Examen;
 use App\Respuesta_por_Usuario;
-use App\Usuario;
+use App\User;
 
 class ConsultasController extends Controller
 {
@@ -48,7 +48,7 @@ class ConsultasController extends Controller
 
     public function Usuario()
     {
-        $user = Usuario::all();
+        $user = User::all();
         return $user;
     }
 
