@@ -72,7 +72,6 @@ class RegisterController extends Controller
             'apellido_paterno' => $data['apellido_paterno'],
             'apellido_materno' => $data['apellido_materno'],
             'email' => $data['email'],
-            'direccion_institucional' => $data['direccion_institucional'],
             'nombre_de_usuario' => RegisterController::UserNameGenerator($data['name'],$data['apellido_paterno'],$data['apellido_materno']),
             'rol' => 1,
             'status' => 1,

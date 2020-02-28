@@ -9,9 +9,9 @@
 </head>
 <body>
 @guest
-        <button onclick="location.href='{{ route('login') }}'" type="button">
-                    Iniciar Sesión
-        </button>
+    <button onclick="location.href='{{ route('login') }}'" type="button">
+        Iniciar Sesión
+    </button>
 
     @if (Route::has('register'))
         
@@ -20,13 +20,9 @@
         </button>
     @endif
     @else
-
-        {{ Auth::user()->name }} 
- 
         <button class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" type="button">
             Logout
         </button>
-
 
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
@@ -35,6 +31,10 @@
 @endguest
         <main class="py-4">
             @yield('content')
+        </main>
+
+        <main class="py-4">
+            @yield('options')
         </main>
 </body>
 </html>

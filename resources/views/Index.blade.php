@@ -3,7 +3,7 @@
  	<html lang="es">
  		<head>
  			<meta charset="UTF-8">
- 				<title>PAGINA DE ACCESO</title>
+ 				<title>PAGINA DE VIZUALISACIÓN DE DATOS</title>
  		</head>
  		<body>
  			<button onclick="location.href='{{ url('/Examenes')}}'" type="button">

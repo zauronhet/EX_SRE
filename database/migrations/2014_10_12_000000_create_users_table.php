@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('apellido_paterno');
             $table->string('apellido_materno');	
-            $table->string('direccion_institucional');
             $table->string('nombre_de_usuario')->unique();
             $table->boolean('rol');
             $table->integer('status');

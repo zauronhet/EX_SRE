@@ -22,32 +22,9 @@ Route::get('/Respuestas_por_Usuarios','ConsultasController@Respuesta_por_Usuario
 Route::get('/Usuarios','ConsultasController@Usuario');
 
 
-
-
-
-
-
-
-
-
-Route::get('/1','Ex_Access_Controller@Access');
-//-------------------------------------------------------------------------------------------------
-Route::get('/Create','Ex_Create_User_Controller@New_User_Form');
-
-Route::post('/Create','Ex_Create_UserController@New_User_Insert')->name('user.Insert');
-
-Route::post('/UserName','INTSIAC_Create_UserController@UserNameGenerator')->name('user.UserName');
-//------------------------------------------------------------------------------------------------
-Route::get('/LogIn','INTSIAC_LogInController@LogIn');
-
-Route::post('/LogIn','INTSIAC_LogInController@Authentication')->name('user.LogIn');
-
-
-
-Route::get('/index','INTSIAC_Create_UserController@index');
-
-
-
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/examenes', 'ExamsController@examenes')->name('examenes');
+
+Route::get('examenes/{eid}/{uid}', 'ExamsController@int_ex');
+    //

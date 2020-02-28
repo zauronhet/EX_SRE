@@ -31,16 +31,6 @@
             </span>
         @enderror
         
-        <label for="direccion_institucional" class="col-md-4 col-form-label text-md-right">{{ __('Direccion Institucional') }}</label>
-        <input id="direccion_institucional" type="text" class="form-control @error('direccion_institucional') is-invalid @enderror" name="direccion_institucional" value="{{ old('direccion_institucional') }}" required autocomplete="direccion_institucional" autofocus>
-        
-        @error('direccion_institucional')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-        
-
         <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
