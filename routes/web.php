@@ -12,7 +12,6 @@
 */
 
 
-
 Route::get('/','ConsultasController@Index');
 Route::get('/Examenes','ConsultasController@Examenes');
 Route::get('/Intento_de_Examenes','ConsultasController@Intento_de_Examenes');
@@ -25,6 +24,5 @@ Route::get('/Usuarios','ConsultasController@Usuario');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/examenes', 'ExamsController@examenes')->name('examenes');
-
 Route::get('examenes/{eid}/{uid}', 'ExamsController@int_ex');
-    //
+Route::get('examenes/{eid}/{uid}/{intento}', 'ExamsController@presentarintento');

@@ -10,11 +10,11 @@ class Examen extends Model
     //
     public function opciones_pregunta_de_examen()
     {
-        return $this->hasMany(Opcion_Pregunta_de_Examen::class);
+        return $this->hasMany('App\Opcion_Pregunta_de_Examen');
     }
 
     public function intentos_de_examen()
     {
-        return $this->hasMany(Intento_de_Examen::class);
+        return $this->hasMany('App\Intento_de_Examen');
     }
 }

@@ -10,6 +10,6 @@ class Pregunta_de_Examen extends Model
     
     public function opciones_preguntas_de_examenes()
     {
-        return $this->hasMany(Opcion_pregunta_de_Examen::class);
+        return $this->hasMany('App\Opcion_pregunta_de_Examen');
     }
 }
