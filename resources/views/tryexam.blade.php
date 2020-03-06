@@ -15,7 +15,7 @@
 
     este es el intento {{$intento}}
     <?php
-        $preguntas = \App\Pregunta_de_Examen::where('examen_id','=',$exam)->get();
+        $preguntas = \App\Pregunta_de_Examen::where('examen_id','=',$exam)->paginate(1);
         
     ?>
 
@@ -30,11 +30,12 @@
     <ul>
         @foreach ($opciones as $opcion)
 
-        <li><input type="radio" name=<?php $pregunta->id ?>  value=<?php $pregunta->id ?>>{{$opcion->opcion}}</li>
+        <li><input type="radio" name="pregunta<?php echo $pregunta->id?>"?>>{{$opcion->opcion}}</li>
         
     
         @endforeach
     </ul>
-@endforeach
     
+@endforeach
+    {!! $preguntas->render() !!}
 @endsection
