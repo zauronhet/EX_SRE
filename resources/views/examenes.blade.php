@@ -14,7 +14,6 @@
 
 @section('options')
 
-
     <?php
         $tmp = \App\Examen::all();
     ?>
