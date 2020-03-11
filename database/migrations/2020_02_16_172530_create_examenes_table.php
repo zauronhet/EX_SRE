@@ -17,6 +17,7 @@ class CreateExamenesTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->integer('status');
+            $table->integer('intentos_activos');
             $table->timestamps();
         });
     }

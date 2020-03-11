@@ -15,12 +15,14 @@ class CreateRespuestasPorUsuarioTable extends Migration
     {
         Schema::create('respuestas_por_usuario', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('opcion_pregunta_de_examen_id');
+            $table->unsignedBigInteger('pregunta_de_examen_id');
             $table->unsignedBigInteger('intento_de_examen_id');
+            $table->longText('res_user');
             $table->integer('status');
             $table->timestamps();
 
-            $table->foreign('opcion_pregunta_de_examen_id')->references('id')->on('opciones_preguntas_de_examenes');
+
+            $table->foreign('pregunta_de_examen_id')->references('id')->on('preguntas_de_examenes');
             $table->foreign('intento_de_examen_id')->references('id')->on('intentos_de_examenes');
         
         });

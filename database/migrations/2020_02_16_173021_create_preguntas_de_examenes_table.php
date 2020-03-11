@@ -16,8 +16,12 @@ class CreatePreguntasDeExamenesTable extends Migration
         Schema::create('preguntas_de_examenes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('examen_id');
-            $table->string('pregunta');
-            $table->string('respuesta_correcta');
+            $table->longText('pregunta');
+            $table->longText('resp_1');
+            $table->longText('resp_2');
+            $table->longText('resp_3');
+            $table->longText('resp_4');
+            $table->string('respuesta_correcta',10);
             $table->integer('status');
             $table->timestamps();
 

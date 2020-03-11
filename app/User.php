@@ -39,6 +39,6 @@ class User extends Authenticatable
 
     public function intentos_de_examenes()
     {
-        return $this->hasMany(Intento_de_Examen::class);
+        return $this->hasMany('App\Intento_de_Examen');
     }
 }
